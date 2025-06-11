@@ -11,7 +11,6 @@ async function primusProofTest() {
     console.log("primusProof initResult=", initResult);
 
     DS_API_KEY = process.env.DS_API_KEY;
-    console.log("DS_API_KEY=", DS_API_KEY);
 
     // Set request and responseResolves.
     const request = {
@@ -43,10 +42,14 @@ async function primusProofTest() {
     });
 
     // Start attestation process.
+    console.time("zktls prove");
     const attestation = await zkTLS.startAttestation(generateRequest);
+    console.timeEnd("zktls prove");
     console.log("attestation=", attestation);
 
+    console.time("zktls verify");
     const verifyResult = zkTLS.verifyAttestation(attestation);
+    console.timeEnd("zktls verify");
     console.log("verifyResult=", verifyResult);
 
     process.exit(0);
