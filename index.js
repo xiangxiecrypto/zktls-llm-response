@@ -50,4 +50,5 @@ async function primusProofTest() {
 
     process.exit(0);
 }
-primusProofTest();
+primusProofTest().then(() => {
+}).catch((error) => { console.log("error=", error); process.exit(1); });
