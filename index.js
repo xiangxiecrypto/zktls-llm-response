@@ -11,6 +11,7 @@ async function primusProofTest() {
     console.log("primusProof initResult=", initResult);
 
     DS_API_KEY = process.env.DS_API_KEY;
+    console.log("DS_API_KEY=", DS_API_KEY);
 
     // Set request and responseResolves.
     const request = {
